@@ -5,8 +5,8 @@ FROM nginx:alpine
 RUN apk add --no-cache curl jq
 
 # Копируем конфигурации
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY conf.d/ /etc/nginx/conf.d/
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx/conf.d/ /etc/nginx/conf.d/
 #COPY ssl/ /etc/nginx/ssl/
 
 # Создаем папки для логов
