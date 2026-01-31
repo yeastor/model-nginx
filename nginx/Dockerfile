@@ -7,7 +7,7 @@ RUN apk add --no-cache curl jq
 # Копируем конфигурации
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY conf.d/ /etc/nginx/conf.d/
-COPY ssl/ /etc/nginx/ssl/
+#COPY ssl/ /etc/nginx/ssl/
 
 # Создаем папки для логов
 RUN mkdir -p /var/log/nginx && \
