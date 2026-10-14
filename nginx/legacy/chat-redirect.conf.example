@@ -1,0 +1,15 @@
+# Optional compatibility redirect only. NOT included by the normal nginx.conf.
+# Install only if old chat links need migration AND the old TLS certificate exists.
+server {
+    listen 80;
+    server_name chat.aizashchita.ru;
+    return 308 https://aizashchita.ru/chat;
+}
+
+server {
+    listen 443 ssl;
+    server_name chat.aizashchita.ru;
+    ssl_certificate /etc/letsencrypt/live/chat.aizashchita.ru/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/chat.aizashchita.ru/privkey.pem;
+    return 308 https://aizashchita.ru/chat;
+}
